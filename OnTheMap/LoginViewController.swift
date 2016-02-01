@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     
     //UI Actions
     @IBAction func openSignUp(sender: UIButton) {
-        if let url = NSURL(string: "http://www.yahoo.com") {
+        if let url = NSURL(string: "https://www.udacity.com/account/auth#!/signup") {
             UIApplication.sharedApplication().openURL(url)
         }
     }
@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
     @IBAction func login(sender: AnyObject) {
         if !validateFields() {
             lblError.text = "Please Enter a Valid Username and Password"
-        } else {
+         } else {
             let loginCredential = LoginCredential(username: txtEmailAddress.text!, password: txtPassword.text!)
             UdacityManager.sharedInstance().loginAndCreateSession(loginCredential, completionHandler: {
                 (success, errorString) in
@@ -55,6 +55,10 @@ class LoginViewController: UIViewController {
             return false
         }
         
+        if (txtEmailAddress.text == "" || txtPassword.text == "") {
+            return false
+        }
+        
         if txtEmailAddress.text == "Enter Email Address" || txtPassword.text == "Enter Password" {
             return false
             
@@ -62,9 +66,7 @@ class LoginViewController: UIViewController {
         return true
     }
     
-    func showBusy() {
-        
-    }
+
     
     // Login and present next view
     func completeLogin() {

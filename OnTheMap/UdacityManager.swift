@@ -82,7 +82,6 @@ class UdacityManager : NSObject {
                 
                 if let sessionInfo = parsedResult["session"] as? NSDictionary {
                     self.sessionID = sessionInfo["id"] as! String
-                    print(self.sessionID)
                 }
                 
                 //return success or failure
