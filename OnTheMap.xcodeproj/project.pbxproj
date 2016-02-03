@@ -12,6 +12,7 @@
 		603E8A5B1C5E470900AACD8A /* AddStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E8A5A1C5E470900AACD8A /* AddStudentViewController.swift */; };
 		607395371C599E4D00216A8A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607395361C599E4C00216A8A /* LoginViewController.swift */; };
 		60E0C3C11C5D1FBA00E984E4 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E0C3C01C5D1FBA00E984E4 /* StudentInformation.swift */; };
+		840F9EFF1C603C6B0049249B /* StudentsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F9EFE1C603C6B0049249B /* StudentsList.swift */; };
 		84E785651C58DFD90051408A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E785641C58DFD90051408A /* AppDelegate.swift */; };
 		84E785671C58DFD90051408A /* StudentMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E785661C58DFD90051408A /* StudentMapViewController.swift */; };
 		84E785691C58DFD90051408A /* StudentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E785681C58DFD90051408A /* StudentListViewController.swift */; };
@@ -47,6 +48,7 @@
 		603E8A5A1C5E470900AACD8A /* AddStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStudentViewController.swift; sourceTree = "<group>"; };
 		607395361C599E4C00216A8A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		60E0C3C01C5D1FBA00E984E4 /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
+		840F9EFE1C603C6B0049249B /* StudentsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentsList.swift; sourceTree = "<group>"; };
 		84E785611C58DFD90051408A /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E785641C58DFD90051408A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E785661C58DFD90051408A /* StudentMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentMapViewController.swift; sourceTree = "<group>"; };
@@ -104,8 +106,21 @@
 			children = (
 				60E0C3C01C5D1FBA00E984E4 /* StudentInformation.swift */,
 				6020521E1C5D779D00176B61 /* LoginCredential.swift */,
+				840F9EFE1C603C6B0049249B /* StudentsList.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		840F9EFB1C603B140049249B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				84E785681C58DFD90051408A /* StudentListViewController.swift */,
+				84E785661C58DFD90051408A /* StudentMapViewController.swift */,
+				603E8A5A1C5E470900AACD8A /* AddStudentViewController.swift */,
+				603E8A581C5E421600AACD8A /* TabBarViewController.swift */,
+				607395361C599E4C00216A8A /* LoginViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		84E785581C58DFD90051408A = {
@@ -131,15 +146,11 @@
 		84E785631C58DFD90051408A /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				840F9EFB1C603B140049249B /* Controllers */,
 				60E0C3BF1C5D1F6B00E984E4 /* Model */,
 				84E785641C58DFD90051408A /* AppDelegate.swift */,
-				84E785661C58DFD90051408A /* StudentMapViewController.swift */,
 				603E8A5C1C5E75B200AACD8A /* API Management */,
-				84E785681C58DFD90051408A /* StudentListViewController.swift */,
 				84E7856A1C58DFD90051408A /* Main.storyboard */,
-				603E8A5A1C5E470900AACD8A /* AddStudentViewController.swift */,
-				603E8A581C5E421600AACD8A /* TabBarViewController.swift */,
-				607395361C599E4C00216A8A /* LoginViewController.swift */,
 				84E7856D1C58DFD90051408A /* Assets.xcassets */,
 				84E7856F1C58DFD90051408A /* LaunchScreen.storyboard */,
 				84E785721C58DFD90051408A /* Info.plist */,
@@ -296,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840F9EFF1C603C6B0049249B /* StudentsList.swift in Sources */,
 				6020521F1C5D779D00176B61 /* LoginCredential.swift in Sources */,
 				607395371C599E4D00216A8A /* LoginViewController.swift in Sources */,
 				84E785691C58DFD90051408A /* StudentListViewController.swift in Sources */,

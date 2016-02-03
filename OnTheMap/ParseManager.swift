@@ -16,7 +16,7 @@ class ParseManager: NSObject {
     let applicationID: String = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
     
     // shared array for student locations
-    var studentLocations: [StudentInformation] = []
+    var studentList = StudentsList.sharedInstance.studentsList
     
 
     let urlForGetRequest = "https://api.parse.com/1/classes/"
@@ -26,9 +26,10 @@ class ParseManager: NSObject {
     var completionHandler : ((success: Bool, errorString: String?) -> Void)? = nil
     
     
-    // retrieve last 100 students and add them to the studentLocations array
+    // retrieve last 100 students and add them to the student List
     func getStudentLocationsUsingCompletionHandler(completionHandler: (success: Bool, errorString: String?) -> Void) {
         let request = NSMutableURLRequest(URL: NSURL(string: baseURL + "StudentLocation?limit=100" )!)
+        
         request.addValue(applicationID, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(apiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         let task = session.dataTaskWithRequest(request) { data, response, error in
@@ -47,17 +48,16 @@ class ParseManager: NSObject {
                 }
                 
                 if let errorMessage = parsedResult["error"] as? String {
-                    print("ERROR MESSAGE RECEIVED")
                     completionHandler(success: false, errorString: errorMessage)
                 }
                 
                 //use the data
                 if let topLevelDict = parsedResult {
                     let studentsArray = topLevelDict["results"] as! NSArray
-                    self.studentLocations = []
+                    StudentsList.sharedInstance.studentsList = []
                     for studentDictionary in studentsArray {
                         if let student = self.studentLocationFromDictionary(studentDictionary as! NSDictionary) {
-                            self.studentLocations.append(student)
+                            StudentsList.sharedInstance.studentsList.append(student)
                         }
                     }
                 }
@@ -115,7 +115,8 @@ class ParseManager: NSObject {
         let studentMapString = studentDictionary["mapString"] as! String
         let studentObjectID = studentDictionary["objectId"] as! String
         let studentUniqueKey = studentDictionary["uniqueKey"] as! String
-        let initializerDictionary = ["firstName": studentFirstName, "lastName": studentLastName, "longitude": studentLongitude, "latitude": studentLatitude, "mediaURL": studentMediaURL, "mapString": studentMapString, "objectID": studentObjectID, "uniqueKey": studentUniqueKey]
+        let updatedAt = studentDictionary["updatedAt"] as! String
+        let initializerDictionary = ["firstName": studentFirstName, "lastName": studentLastName, "longitude": studentLongitude, "latitude": studentLatitude, "mediaURL": studentMediaURL, "mapString": studentMapString, "objectID": studentObjectID, "uniqueKey": studentUniqueKey,"updatedAt": updatedAt]
         return StudentInformation(initializerDictionary: initializerDictionary as! [String:AnyObject])
     }
 

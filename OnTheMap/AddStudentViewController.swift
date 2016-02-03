@@ -42,7 +42,8 @@ class AddStudentViewController: UIViewController, MKMapViewDelegate, UITextField
     @IBAction func btnCancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
+
     @IBAction func btnFindOnMapSubmitPressed(sender: AnyObject) {
         
         if btnFindOnMapSubmit.titleLabel?.text == "Find on the Map" {
@@ -57,7 +58,8 @@ class AddStudentViewController: UIViewController, MKMapViewDelegate, UITextField
     //overrides
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        removeSpinner()
+        activityIndicator.hidden = true
+        activityIndicator.stopAnimating()
         setLocationViews()
         showFindOnTheMapViews()
     }
@@ -72,21 +74,25 @@ class AddStudentViewController: UIViewController, MKMapViewDelegate, UITextField
         
     }
     
-    func addSpinner() {
-        activityIndicator.startAnimating()
+    
+    // show or hide activity spinner
+    func lockUI() {
+        //lock out UI
+        btnFindOnMapSubmit.enabled = false
         activityIndicator.hidden = false
+        activityIndicator.startAnimating()
     }
     
-    func removeSpinner() {
+    func unlockUI() {
+        btnFindOnMapSubmit.enabled = true
         activityIndicator.stopAnimating()
-        activityIndicator.hidden = true
     }
+    
+
 
     func showFindOnTheMapViews() {
 
         btnFindOnMapSubmit.setTitle("Find on the Map", forState: .Normal)
-
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
         
         middleView.hidden = false
         txtEnterLocation.hidden = false
@@ -102,9 +108,7 @@ class AddStudentViewController: UIViewController, MKMapViewDelegate, UITextField
     func showSubmitSubviews() {
         // set attributes for shared subviews
         btnFindOnMapSubmit.setTitle("Submit", forState: .Normal)
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         
-
         middleView.hidden = true
         txtEnterLocation.hidden = true
         lblWhere.hidden = true
@@ -118,14 +122,21 @@ class AddStudentViewController: UIViewController, MKMapViewDelegate, UITextField
     
     // "Find on the Map" button pressed
     func findPressed() {
+        
         if txtEnterLocation.text!.isEmpty || txtEnterLocation.text! == "Enter Your Location Here" {
             let emptyStringAlert = UIAlertController(title: "Please enter your location", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
             emptyStringAlert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(emptyStringAlert, animated: true, completion: nil)
             return
         } else {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.lockUI()
+            })
             locationString = txtEnterLocation.text!
+
             getLatitudeAndLongitude(locationString)
+            
+
         }
     }
     
@@ -137,16 +148,22 @@ class AddStudentViewController: UIViewController, MKMapViewDelegate, UITextField
             self.presentViewController(emptyStringAlert, animated: true, completion: nil)
             return
         } else {
-            addSpinner()
+            dispatch_async(dispatch_get_main_queue(), {
+                self.lockUI()
+            })
             mediaURL = txtShareURL.text!
             ParseManager.sharedInstance().postStudentLocation(userKey, firstName: firstName, lastName: lastName, mediaURL: mediaURL, locationString: locationString, locationLatitude: locationLatitude, locationLongitude: locationLongitude) { (success, errorString) in
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.unlockUI()
+                })
+                
                 if success {
-                    self.removeSpinner()
+                   
                     dispatch_async(dispatch_get_main_queue(), {
                         self.dismissViewControllerAnimated(true, completion: nil)
                     })
                 } else {
-                    self.removeSpinner()
                     dispatch_async(dispatch_get_main_queue(), {
                         let errorAlert = UIAlertController(title: errorString!, message: nil, preferredStyle: UIAlertControllerStyle.Alert)
                         errorAlert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
@@ -160,12 +177,12 @@ class AddStudentViewController: UIViewController, MKMapViewDelegate, UITextField
     
     // Get the geocoordinates for the location string
     func getLatitudeAndLongitude(location: String) {
-        addSpinner()
+
         let geocoder = CLGeocoder()
 
         geocoder.geocodeAddressString(location) { placemarks, error in
             if error == nil {
-                if let placemark = placemarks![0] as? CLPlacemark {
+                if let placemark = placemarks?[0]  {
                     let coordinates = placemark.location!.coordinate
                     
                     //Setup data for submission
@@ -180,7 +197,6 @@ class AddStudentViewController: UIViewController, MKMapViewDelegate, UITextField
                     
                     //Reconfigure display
                     dispatch_async(dispatch_get_main_queue()) {
-                        self.activityIndicator.stopAnimating()
                         
                         if !self.mediaURL.isEmpty {
                             self.txtShareURL.text = self.mediaURL
@@ -190,6 +206,7 @@ class AddStudentViewController: UIViewController, MKMapViewDelegate, UITextField
                         
                         self.addMapView.alpha = 1.0
                         self.addMapView.setRegion(region, animated: true)
+                        self.unlockUI()
                     }
                 }
                 self.showSubmitSubviews()
@@ -197,7 +214,6 @@ class AddStudentViewController: UIViewController, MKMapViewDelegate, UITextField
                 let alert = UIAlertController(title: "Location not added", message: "Sorry we couldn't find that location.", preferredStyle: .Alert)
                 let dismissAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                     self.txtShareURL.text = ""
-                    self.activityIndicator.stopAnimating()
                 }
                 alert.addAction(dismissAction)
                 dispatch_async(dispatch_get_main_queue()) {
@@ -206,7 +222,6 @@ class AddStudentViewController: UIViewController, MKMapViewDelegate, UITextField
                 
             }
         }
-        removeSpinner()
     }
     
     func setMapViewScale(location: CLLocationCoordinate2D) {

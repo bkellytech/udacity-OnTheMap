@@ -11,7 +11,7 @@ import UIKit
 class StudentListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //class variables
-    var students: [StudentInformation] = ParseManager.sharedInstance().studentLocations
+    var students: [StudentInformation] = StudentsList.sharedInstance.studentsList
     
     //UI Outlets
     @IBOutlet weak var studentListView: UITableView!
@@ -28,7 +28,7 @@ class StudentListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = (tableView.dequeueReusableCellWithIdentifier("studentCell") as? UITableViewCell?)!
+        let cell = tableView.dequeueReusableCellWithIdentifier("studentCell") 
         let image: UIImage = UIImage(named: "addItem")!
         cell?.imageView!.image = image
         let student = students[indexPath.row]
@@ -39,9 +39,18 @@ class StudentListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let student = students[indexPath.row]
-        UIApplication.sharedApplication().openURL(NSURL(string: student.mediaURL)!)
+        
+        //bug fix - try converting to NSURL to prevent row from crashing
+        print("TRYING TO OPEN:" + student.mediaURL)
+        var studentURL = student.mediaURL
+        if studentURL.lowercaseString.rangeOfString("http") == nil {
+            studentURL = "http://" + studentURL
+        }
+        let request = NSURLRequest(URL: NSURL(string: studentURL)!)
+        UIApplication.sharedApplication().openURL(request.URL!)
+
     }
-    
+
     
     
     //Utility Functions
@@ -50,7 +59,8 @@ class StudentListViewController: UIViewController, UITableViewDelegate, UITableV
         ParseManager.sharedInstance().getStudentLocationsUsingCompletionHandler() { (success, errorString) in
             if success {
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.students = ParseManager.sharedInstance().studentLocations
+                    self.students = StudentsList.sharedInstance.studentsList
+                    self.students = self.students.sort({$0.updatedAt > $1.updatedAt})
                     self.studentListView.reloadData()
                 })
             } else {
