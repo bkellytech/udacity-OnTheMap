@@ -49,7 +49,11 @@ class LoginViewController: UIViewController {
                     //store session and move to next screen
                     self.completeLogin()
                 } else {
-                    
+                    //unlock the ui
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.unlockUI()
+                    }
+                    //show error
                     dispatch_async(dispatch_get_main_queue(), {
                         let errorAlert = UIAlertController(title: errorString!, message: nil, preferredStyle: UIAlertControllerStyle.Alert)
                         errorAlert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))

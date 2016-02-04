@@ -49,18 +49,19 @@ class ParseManager: NSObject {
                 
                 if let errorMessage = parsedResult["error"] as? String {
                     completionHandler(success: false, errorString: errorMessage)
-                }
-                
-                //use the data
-                if let topLevelDict = parsedResult {
-                    let studentsArray = topLevelDict["results"] as! NSArray
-                    StudentsList.sharedInstance.studentsList = []
-                    for studentDictionary in studentsArray {
-                        if let student = self.studentLocationFromDictionary(studentDictionary as! NSDictionary) {
-                            StudentsList.sharedInstance.studentsList.append(student)
+                } else {
+
+                    if let topLevelDict = parsedResult {
+                        let studentsArray = topLevelDict["results"] as! NSArray
+                        StudentsList.sharedInstance.studentsList = []
+                        for studentDictionary in studentsArray {
+                            if let student = self.studentLocationFromDictionary(studentDictionary as! NSDictionary) {
+                                StudentsList.sharedInstance.studentsList.append(student)
+                            }
                         }
                     }
                 }
+                
                 
 
                 completionHandler(success: true, errorString: nil)

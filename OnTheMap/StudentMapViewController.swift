@@ -12,9 +12,6 @@ import MapKit
 class StudentMapViewController: UIViewController, MKMapViewDelegate {
     
     
-    //class variables
-    var students: [StudentInformation] = StudentsList.sharedInstance.studentsList
-    
     //Outlets
     @IBOutlet weak var studentMap: MKMapView!
     
@@ -37,7 +34,6 @@ class StudentMapViewController: UIViewController, MKMapViewDelegate {
         ParseManager.sharedInstance().getStudentLocationsUsingCompletionHandler() { (success, errorString) in
             if success {
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.students = StudentsList.sharedInstance.studentsList
                     self.addStudentsToMap()
                 })
             } else {
@@ -54,7 +50,7 @@ class StudentMapViewController: UIViewController, MKMapViewDelegate {
     //Add Students to map
     // loop through array to create an annotation for each
     func addStudentsToMap() {
-        for student in students {
+        for student in StudentsList.sharedInstance.studentsList {
             createAnnotationFromSingleLocation(student)
         }
     }
