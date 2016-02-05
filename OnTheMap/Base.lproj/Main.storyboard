@@ -19,33 +19,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="left" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Email Address and Password" borderStyle="line" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ctc-Si-aQi">
-                                <rect key="frame" x="164" y="327" width="272" height="29"/>
+                                <rect key="frame" x="164" y="255" width="272" height="29"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.77134680685112955" blue="0.70157393082356878" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.83800897389999995" green="0.37298584839999999" blue="0.083602678070000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="64" y="271" width="272" height="34"/>
+                                </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0L-oP-ef1">
-                                <rect key="frame" x="15" y="280" width="569" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYw-6y-nj3">
-                                <rect key="frame" x="224" y="257" width="153" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYw-6y-nj3">
+                                <rect key="frame" x="224" y="222" width="153" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="left" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tSB-wb-H3O">
-                                <rect key="frame" x="164" y="353" width="272" height="28"/>
+                                <rect key="frame" x="164" y="288" width="272" height="28"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.77134680690000001" blue="0.70157393079999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.83800897389999995" green="0.37298584839999999" blue="0.083602678070000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="64" y="312" width="272" height="34"/>
+                                </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uy8-M0-quL">
-                                <rect key="frame" x="164" y="393" width="272" height="32"/>
+                                <rect key="frame" x="164" y="319" width="272" height="32"/>
                                 <color key="backgroundColor" red="0.83800897393563778" green="0.37298584835885473" blue="0.083602678073268086" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Login">
@@ -57,52 +57,85 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="64" y="358" width="272" height="33"/>
+                                </variation>
                                 <connections>
                                     <action selector="login:" destination="60V-xp-aL3" eventType="touchUpInside" id="tFc-wr-deM"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoOrange" translatesAutoresizingMaskIntoConstraints="NO" id="ByI-Qf-Bid">
-                                <rect key="frame" x="66" y="36" width="469" height="213"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LogoOrange" translatesAutoresizingMaskIntoConstraints="NO" id="ByI-Qf-Bid">
+                                <rect key="frame" x="59" y="8" width="462" height="209"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csr-xD-vTn">
-                                <rect key="frame" x="164" y="474" width="272" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csr-xD-vTn">
+                                <rect key="frame" x="164" y="374" width="272" height="34"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Don't have an account? Sign Up">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="64" y="411" width="272" height="34"/>
+                                </variation>
                                 <connections>
                                     <action selector="openSignUp:" destination="60V-xp-aL3" eventType="touchUpInside" id="aKg-Z6-FLB"/>
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="nlb-wv-fIt">
                                 <rect key="frame" x="281" y="235" width="37" height="37"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="181" y="235" width="37" height="37"/>
+                                </variation>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0L-oP-ef1">
+                                <rect key="frame" x="15" y="280" width="569" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.66274509800000003" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ByI-Qf-Bid" firstAttribute="leading" secondItem="hK4-74-lKo" secondAttribute="leadingMargin" constant="46" id="4G3-AG-pK0"/>
                             <constraint firstItem="ByI-Qf-Bid" firstAttribute="centerX" secondItem="hK4-74-lKo" secondAttribute="centerX" id="5ga-s1-MXN"/>
-                            <constraint firstItem="x0L-oP-ef1" firstAttribute="centerY" secondItem="hK4-74-lKo" secondAttribute="centerY" id="8LO-0W-1In"/>
+                            <constraint firstItem="x0L-oP-ef1" firstAttribute="centerY" secondItem="hK4-74-lKo" secondAttribute="centerY" id="8LO-0W-1In">
+                                <variation key="widthClass=compact" constant="-1.5"/>
+                            </constraint>
                             <constraint firstItem="Ctc-Si-aQi" firstAttribute="centerX" secondItem="x0L-oP-ef1" secondAttribute="centerX" id="9iu-wp-KvG"/>
                             <constraint firstItem="csr-xD-vTn" firstAttribute="width" secondItem="Ctc-Si-aQi" secondAttribute="width" id="Ast-Kn-ZTw"/>
                             <constraint firstItem="csr-xD-vTn" firstAttribute="height" secondItem="Ctc-Si-aQi" secondAttribute="height" id="CBd-HW-e3W"/>
-                            <constraint firstItem="ByI-Qf-Bid" firstAttribute="top" secondItem="N7y-u5-s9y" secondAttribute="bottom" constant="16" id="Ccm-wY-HtA"/>
+                            <constraint firstItem="ByI-Qf-Bid" firstAttribute="top" secondItem="N7y-u5-s9y" secondAttribute="bottom" constant="16" id="Ccm-wY-HtA">
+                                <variation key="widthClass=compact" constant="1"/>
+                            </constraint>
                             <constraint firstItem="Uy8-M0-quL" firstAttribute="width" secondItem="Ctc-Si-aQi" secondAttribute="width" id="DST-QS-tIY"/>
                             <constraint firstItem="Uy8-M0-quL" firstAttribute="centerX" secondItem="hK4-74-lKo" secondAttribute="centerX" id="IQK-Lh-SgI"/>
-                            <constraint firstItem="csr-xD-vTn" firstAttribute="top" secondItem="Uy8-M0-quL" secondAttribute="bottom" constant="21" id="IR7-zq-e4M"/>
-                            <constraint firstItem="Ctc-Si-aQi" firstAttribute="top" secondItem="x0L-oP-ef1" secondAttribute="bottom" constant="8" symbolic="YES" id="IWZ-F5-IOE"/>
+                            <constraint firstItem="csr-xD-vTn" firstAttribute="top" secondItem="Uy8-M0-quL" secondAttribute="bottom" constant="21" id="IR7-zq-e4M">
+                                <variation key="widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="Ctc-Si-aQi" firstAttribute="top" secondItem="x0L-oP-ef1" secondAttribute="bottom" constant="8" symbolic="YES" id="IWZ-F5-IOE">
+                                <variation key="widthClass=compact" constant="-47"/>
+                            </constraint>
                             <constraint firstItem="Uy8-M0-quL" firstAttribute="top" secondItem="tSB-wb-H3O" secondAttribute="bottom" constant="12" id="KgU-lg-gWs"/>
                             <constraint firstItem="Ctc-Si-aQi" firstAttribute="centerX" secondItem="hK4-74-lKo" secondAttribute="centerX" id="MCw-ec-eNc"/>
-                            <constraint firstItem="x0L-oP-ef1" firstAttribute="top" secondItem="ByI-Qf-Bid" secondAttribute="bottom" constant="31" id="N11-gP-Uxo"/>
-                            <constraint firstItem="jYw-6y-nj3" firstAttribute="top" secondItem="ByI-Qf-Bid" secondAttribute="bottom" constant="8" symbolic="YES" id="TbK-fY-6S4"/>
-                            <constraint firstItem="Uy8-M0-quL" firstAttribute="height" secondItem="Ctc-Si-aQi" secondAttribute="height" id="Y0N-lG-lZ3"/>
+                            <constraint firstItem="x0L-oP-ef1" firstAttribute="top" secondItem="ByI-Qf-Bid" secondAttribute="bottom" constant="31" id="N11-gP-Uxo">
+                                <variation key="widthClass=compact" constant="45"/>
+                            </constraint>
+                            <constraint firstItem="jYw-6y-nj3" firstAttribute="top" secondItem="ByI-Qf-Bid" secondAttribute="bottom" constant="8" symbolic="YES" id="TbK-fY-6S4">
+                                <variation key="widthClass=compact" constant="2"/>
+                            </constraint>
+                            <constraint firstItem="Uy8-M0-quL" firstAttribute="height" secondItem="Ctc-Si-aQi" secondAttribute="height" id="Y0N-lG-lZ3">
+                                <variation key="widthClass=compact" constant="-1"/>
+                            </constraint>
                             <constraint firstItem="jYw-6y-nj3" firstAttribute="centerX" secondItem="hK4-74-lKo" secondAttribute="centerX" id="bQS-Sz-geJ"/>
                             <constraint firstItem="tSB-wb-H3O" firstAttribute="height" secondItem="Ctc-Si-aQi" secondAttribute="height" id="bka-Ee-2Gi"/>
                             <constraint firstItem="csr-xD-vTn" firstAttribute="centerX" secondItem="hK4-74-lKo" secondAttribute="centerX" id="fMV-RE-vor"/>
-                            <constraint firstItem="tSB-wb-H3O" firstAttribute="top" secondItem="Ctc-Si-aQi" secondAttribute="bottom" constant="13" id="gIr-PZ-iWG"/>
+                            <constraint firstItem="tSB-wb-H3O" firstAttribute="top" secondItem="Ctc-Si-aQi" secondAttribute="bottom" constant="13" id="gIr-PZ-iWG">
+                                <variation key="widthClass=compact" constant="7"/>
+                            </constraint>
                             <constraint firstItem="tSB-wb-H3O" firstAttribute="width" secondItem="Ctc-Si-aQi" secondAttribute="width" id="giZ-ec-VIR"/>
                             <constraint firstItem="nlb-wv-fIt" firstAttribute="centerX" secondItem="hK4-74-lKo" secondAttribute="centerX" id="j0B-ow-h8Z"/>
-                            <constraint firstItem="Ctc-Si-aQi" firstAttribute="top" secondItem="jYw-6y-nj3" secondAttribute="bottom" constant="46" id="jvF-XV-Ybj"/>
+                            <constraint firstItem="Ctc-Si-aQi" firstAttribute="top" secondItem="jYw-6y-nj3" secondAttribute="bottom" constant="46" id="jvF-XV-Ybj">
+                                <variation key="widthClass=compact" constant="11"/>
+                            </constraint>
                             <constraint firstItem="x0L-oP-ef1" firstAttribute="leading" secondItem="hK4-74-lKo" secondAttribute="leadingMargin" constant="-5" id="kE6-u5-5fj"/>
                             <constraint firstItem="tSB-wb-H3O" firstAttribute="centerX" secondItem="hK4-74-lKo" secondAttribute="centerX" id="lRs-HL-fR4"/>
                             <constraint firstItem="6HH-vH-E2T" firstAttribute="top" secondItem="csr-xD-vTn" secondAttribute="bottom" constant="92" id="neM-J1-V9f"/>
@@ -118,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8pC-cS-y9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1246.875" y="-124.64788732394365"/>
+            <point key="canvasLocation" x="-1247" y="-125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c5g-IP-YCT">
@@ -174,7 +207,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.2117498666" green="0.33606100080000001" blue="0.42425632479999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                        <variation key="widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="268" y="76" width="65" height="24"/>
                                         </variation>
                                     </label>
@@ -182,8 +215,8 @@
                                         <rect key="frame" x="136" y="-14" width="332" height="41"/>
                                         <color key="textColor" red="0.21069848537445068" green="0.36381131410598755" blue="0.49331808090209961" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                        <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <variation key="widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="225" y="0.0" width="150" height="41"/>
                                         </variation>
                                     </textField>
@@ -192,7 +225,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" red="0.2117498666" green="0.33606100080000001" blue="0.42425632479999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                        <variation key="widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="258" y="55" width="85" height="24"/>
                                         </variation>
                                     </label>
@@ -214,7 +247,7 @@
                                     <constraint firstItem="pOi-U8-Tcj" firstAttribute="top" secondItem="cNK-W8-aM3" secondAttribute="top" constant="9" id="xMK-cd-eQi"/>
                                     <constraint firstItem="4lW-Kf-eRA" firstAttribute="centerX" secondItem="cNK-W8-aM3" secondAttribute="centerX" constant="-4.5" id="ys6-Ia-ieF"/>
                                 </constraints>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                <variation key="widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="0.0" y="62" width="400" height="102"/>
                                 </variation>
                             </view>
@@ -224,7 +257,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="txtEnterLocation" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Your Location" placeholder="Enter Your Location Here" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="166-vg-ltG">
                                         <rect key="frame" x="0.0" y="88" width="320" height="62"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
