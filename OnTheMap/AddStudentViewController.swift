@@ -64,7 +64,11 @@ class AddStudentViewController: UIViewController, MKMapViewDelegate, UITextField
         showFindOnTheMapViews()
     }
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        txtEnterLocation.delegate = self
+        txtShareURL.delegate = self
+    }
 
     func setLocationViews() {
 

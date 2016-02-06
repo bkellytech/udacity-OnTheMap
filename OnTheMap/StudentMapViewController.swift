@@ -75,9 +75,15 @@ class StudentMapViewController: UIViewController, MKMapViewDelegate {
     func mapView(mapView: MKMapView, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
         if control == annotationView.rightCalloutAccessoryView {
-            
-            let request = NSURLRequest(URL: NSURL(string: annotationView.annotation!.subtitle!!)!)
-            UIApplication.sharedApplication().openURL(request.URL!)
+            var studentURL = annotationView.annotation!.subtitle!
+            if studentURL != nil && studentURL!.lowercaseString.rangeOfString("http") == nil {
+                studentURL = "http://" + studentURL!
+            }
+
+            if let validURL: NSURL = NSURL(string: studentURL!) {
+                //let request = NSURLRequest(URL: NSURL(string: studentURL)!)
+                UIApplication.sharedApplication().openURL(validURL)
+            }
             
         }
     }

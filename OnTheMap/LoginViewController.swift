@@ -13,7 +13,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     
     
     //UI Outlets
-    @IBOutlet weak var lblError: UILabel!
     @IBOutlet weak var txtEmailAddress: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     
@@ -29,7 +28,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
     
     @IBAction func login(sender: AnyObject) {
         if !validateFields() {
-            lblError.text = "Please Enter a Valid Username and Password"
+            //show bad username error
+            dispatch_async(dispatch_get_main_queue(), {
+                let errorAlert = UIAlertController(title: "Required", message: "Please Enter a Valid Udacity Username and Password", preferredStyle: UIAlertControllerStyle.Alert)
+                errorAlert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(errorAlert, animated: true, completion: nil)
+            })
          } else {
             
             //lock out the buttons and display a beachball

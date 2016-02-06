@@ -41,11 +41,14 @@ class StudentListViewController: UIViewController, UITableViewDelegate, UITableV
         
         //bug fix - try converting to NSURL to prevent row from crashing
         var studentURL = student.mediaURL
-        if studentURL.lowercaseString.rangeOfString("http") == nil {
+        if !studentURL.isEmpty && studentURL.lowercaseString.rangeOfString("http") == nil {
             studentURL = "http://" + studentURL
         }
-        let request = NSURLRequest(URL: NSURL(string: studentURL)!)
-        UIApplication.sharedApplication().openURL(request.URL!)
+        
+        if let validURL: NSURL = NSURL(string: studentURL) {
+            //let request = NSURLRequest(URL: NSURL(string: studentURL)!)
+            UIApplication.sharedApplication().openURL(validURL)
+        }
 
     }
 
